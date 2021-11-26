@@ -24,6 +24,20 @@
                         @include('includes._message')
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{route('updateBlog',$tag->id)}}" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="name"> Select Category <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option selected disabled>Select a Category</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Blog Title <span class="required">*</span>
                                 </label>
